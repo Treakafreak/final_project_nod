@@ -43,8 +43,10 @@ with st.echo(code_location='below'):
     districts=districts[districts['count']>0]
     a=dict({'Москва':[55.75215, 37.61819], 'Санкт-Петербург':[59.9238, 30.3796 ]})
     m=folium.Map(a[city], zoom_start=12)
-    districts.explore('count', m=m)
-    folium_static(m)
+    if len(districts)>0:
+        districts.explore('count', m=m)
+        folium_static(m)
+    else: st.write('В вашем городе нет таких МО')
     col1, col2=st.columns(2)
     """
     Теперь найдем ближайшую к вам больницу оказывающую такой типо помощи. Введите адресс из города который вы выбрали выше
