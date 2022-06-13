@@ -80,7 +80,7 @@ with st.echo(code_location='below'):
             r=requests.get(url,params)
             name_min=r.json()['display_name']
             st.write('Ближайшая больница предоставляющуя помощь вида '+type_help+' это '+a[0]+' находящаяся по адресу '+ name_min)
-         else:
+        else:
             st.write('Попробуйте по другому')
        
         
