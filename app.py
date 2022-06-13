@@ -44,8 +44,8 @@ with st.echo(code_location='below'):
         street = st.text_input('Введите улицу')
     with col2:
         house_number = st.text_input('Введите номер дома')
-    entrypoint='https://nominatim.org/release-docs/latest/api/Search/'
+    entrypoint='https://nominatim.openstreetmap.org/search?'
     if len(house_number)>0:
-        params={'city':city, 'street':house_number+', '+street, 'format': 'json'}
-        r=requests.get(entrypoint,params )
-        st.write(r.json()) 
+        params={'city':city, 'street': house_number+', '+street, 'format': 'geojson'}
+        r=requests.get(entrypoint,params)
+        st.write(r.json())
