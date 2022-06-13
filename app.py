@@ -20,6 +20,9 @@ with st.echo(code_location='below'):
         return x
     data=get_data()
     col1, col2=st.columns(2)
+    """
+    Для начала посмотрим на статистику по районам города
+    """
     with col1:
         city=st.selectbox('Выберите ваш город', ['Москва', 'Санкт-Петербург'])
     with col2:
@@ -40,6 +43,9 @@ with st.echo(code_location='below'):
     districts.explore('count', m=m)
     folium_static(m)
     col1, col2=st.columns(2)
+        """
+    Теперь найдем ближайшую к вам больницу оказывающую такой типо помощи. Введите адресс из города который вы выбрали выше
+    """
     with col1:
         street = st.text_input('Введите улицу')
     with col2:
@@ -72,5 +78,5 @@ with st.echo(code_location='below'):
         params={'format':'json','lon': a['lat'], 'lat':a['lon']}
         r=requests.get(url,params)
         name_min=r.json()['display_name']
-        st.write(name_min)
+        st.write('Ближайшая больница предоставляющуя помощь вида '+type_help+' это '+a[0]+' находящаяся по адресу '+ name_min)
         
