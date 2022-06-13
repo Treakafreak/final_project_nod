@@ -68,4 +68,9 @@ with st.echo(code_location='below'):
         x=find_min(hospitals,coordinates)
         st.write(x)
         a=hospitals.iloc[x]
-        st.write(a[0])
+        url='https://nominatim.openstreetmap.org/reverse?'
+        params={'format':'json','lon': a['lon'], 'lat':a['lat']}
+        r=requests.get(url,params)
+        name_min=r.json()['display_name']
+        st.write(name_min)
+        
