@@ -3,7 +3,6 @@ import requests
 from shapely.geometry import Polygon
 import pandas as pd
 import geopandas as gpd
-import plotly.express as px
 from streamlit_folium import folium_static
 import folium
 with st.echo(code_location='below'):
