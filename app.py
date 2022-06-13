@@ -50,7 +50,7 @@ with st.echo(code_location='below'):
         r=requests.get(entrypoint,params)
         r.json()
         if len(r.json()['features']) >0:
-            coordinates=r.json['features'][0]['geometry']['coordinates']
+            coordinates=r.json()['features'][0]['geometry']['coordinates']
             st.write(coordinates)
         else:
             st.write('Попробуйте по другому')
