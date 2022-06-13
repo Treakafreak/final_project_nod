@@ -34,7 +34,12 @@ with st.echo(code_location='below'):
     for i in dis:
         districts.append([i['id'], i['properties'][type_help], Polygon(i['geometry']['coordinates'][0])])
     districts=gpd.GeoDataFrame(pd.DataFrame(districts, columns=['name','count','geometry']),geometry='geometry')
+    districts=districts[districts['count']>0]
     a=dict({'Москва':[55.75215, 37.61819], 'Санкт-Петербург':[59.9238, 30.3796 ]})
     m=folium.Map(a[city], zoom_start=12)
     districts.explore('count', m=m)
     folium_static(m)
+        with col1:
+        street = st.text_input('Введите улицу')
+    with col2:
+        house_number = st.text_input('Введите номер дома')
