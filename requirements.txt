@@ -4,4 +4,3 @@ shapely
 geopandas
 matplotlib
 mapclassify
-nominatim
