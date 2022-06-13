@@ -49,8 +49,8 @@ with st.echo(code_location='below'):
         params={'city':city, 'street': house_number+', '+street, 'format': 'geojson'}
         r=requests.get(entrypoint,params)
         r.json()
-     if r.json() is not None:
-        coordinates=r.json['features'][0]['geometry']['coordinates']
+    if r.json() is not None:
+       coordinates=r.json['features'][0]['geometry']['coordinates']
        st.write(coordinates)
-     else:
-        st.write('Попробуйте по другому')
+    else:
+       st.write('Попробуйте по другому')
