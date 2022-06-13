@@ -66,4 +66,4 @@ with st.echo(code_location='below'):
         return x
     if len(coordinates)>0:
         x=find_min(hospitals,coordinates)
-        st.write(hospitals.iloc(x))
+        st.write(hospitals.iloc[x])
