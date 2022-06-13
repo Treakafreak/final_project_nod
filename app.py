@@ -64,8 +64,12 @@ with st.echo(code_location='below'):
         else:
             st.write('Попробуйте написать по другому')
     hospitals=[]
+    if city=='Москва':
+        keys1='name'
+    else:
+        keys1='index'
     for i in hos:
-        hospitals.append([i['properties']['name'],i['properties'][type_help],i['geometry']['coordinates'] ])
+        hospitals.append([i['properties'][keys1],i['properties'][type_help],i['geometry']['coordinates'] ])
     hospitals=pd.DataFrame(hospitals)
     hospitals= hospitals[[0,1]].join(pd.DataFrame(hospitals[2].tolist(), columns=['lat','lon']))
     hospitals= hospitals[hospitals[1]==1]
