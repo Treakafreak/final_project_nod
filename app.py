@@ -59,7 +59,7 @@ with st.echo(code_location='below'):
     for i in hos:
         hospitals.append([i['properties']['name'],i['properties'][type_help],i['geometry']['coordinates'] ])
     hospitals=pd.DataFrame(hospitals)
-    hospitals= hospitals[[0,1]].join(pd.DataFrame(hospitals[2].tolist(), columns=['lat','lon'])))
+    hospitals= hospitals[[0,1]].join(pd.DataFrame(hospitals[2].tolist(), columns=['lat','lon']))
     hospitals= hospitals[hospitals[1]==1]
     def find_min(df, coor):
         x=((df['lat']-coor[0])**2+(df['lon']-coor[1])**2).argmin()
