@@ -45,6 +45,7 @@ with st.echo(code_location='below'):
     with col2:
         house_number = st.text_input('Введите номер дома')
     entrypoint='https://nominatim.openstreetmap.org/search?'
+    coordinates=[]
     if len(house_number)>0:
         params={'city':city, 'street': house_number+', '+street, 'format': 'geojson'}
         r=requests.get(entrypoint,params)
@@ -58,4 +59,11 @@ with st.echo(code_location='below'):
     for i in hos:
         hospitals.append([i['properties']['name'],i['properties'][type_help],i['geometry']['coordinates'] ])
     hospitals=pd.DataFrame(hospitals)
-    st.write(hospitals)
+    hospitals= hospitals[[0,1]].join(pd.DataFrame(hospitals[2].tolist(), columns=['lat','lon'])))
+    hospitals= hospitals[hospitals[1]==1]
+    def find_min(df, coor):
+        x=((df['lat']-coor[0])**2+(df['lon']-coor[1])**2).argmin()
+        return x
+    if len(coordinates)>0:
+        x=find_min(hospitals,coordinates)
+    st.write(hospitals.iloc(x))
