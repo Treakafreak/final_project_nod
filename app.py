@@ -44,3 +44,7 @@ with st.echo(code_location='below'):
         street = st.text_input('Введите улицу')
     with col2:
         house_number = st.text_input('Введите номер дома')
+    entrypoint='https://nominatim.org/release-docs/latest/api/Search/'
+    parameters={'city':city, 'street':house_number+', '+street}
+    r=requests.get(entrypoint,parameters )
+    st.write(r.text)
