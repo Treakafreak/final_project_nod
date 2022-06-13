@@ -54,3 +54,7 @@ with st.echo(code_location='below'):
             st.write(coordinates)
         else:
             st.write('Попробуйте по другому')
+    hospitals=[]
+    for i in hos:
+        hospitals.append([i['properties']['name'],i['properties'][type_help],i['geometry']['coordinates'] ])
+    hospitals=pd.DataFrame(hospitals)
