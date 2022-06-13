@@ -33,5 +33,5 @@ with st.echo(code_location='below'):
     districts=gpd.GeoDataFrame(pd.DataFrame(districts, columns=['name','count','geometry']),geometry='geometry')
     a=dict({'Москва':[55.75215, 37.61819], 'Санкт-Петербург':[59.9238, 30.3796 ]})
     m=folium.Map(a[city], zoom_start=12)
-    districts.explore('count',m=m)
+    districts.explore(m=m)
     folium_static(m)
