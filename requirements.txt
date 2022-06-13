@@ -2,3 +2,5 @@ folium
 streamlit_folium
 shapely
 geopandas
+matplotlib
+mapclassify
