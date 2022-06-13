@@ -27,6 +27,9 @@ with st.echo(code_location='below'):
     if city=='Москва':
         dis=data[0]
         hos=data[2]
+    else:
+        dis=data[1]
+        hos=data[3]
     districts=[]
     for i in dis:
         districts.append([i['id'], i['properties'][type_help], Polygon(i['geometry']['coordinates'][0])])
