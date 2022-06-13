@@ -58,3 +58,4 @@ with st.echo(code_location='below'):
     for i in hos:
         hospitals.append([i['properties']['name'],i['properties'][type_help],i['geometry']['coordinates'] ])
     hospitals=pd.DataFrame(hospitals)
+    st.write(hospitals)
