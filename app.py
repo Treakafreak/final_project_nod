@@ -39,7 +39,8 @@ with st.echo(code_location='below'):
     m=folium.Map(a[city], zoom_start=12)
     districts.explore('count', m=m)
     folium_static(m)
-        with col1:
+    col1, col2=st.columns(2)
+    with col1:
         street = st.text_input('Введите улицу')
     with col2:
         house_number = st.text_input('Введите номер дома')
